@@ -19,8 +19,3 @@ data "aws_route_table" "main" {
 # output "azs_ifo" {
 #   value = data.aws_availability_zones.available
 # }
-
-
-data "aws_ssm_parameter" "private_subnet_ids" {
-  name = "/roboshop/dev/private_subnet_ids"
-}

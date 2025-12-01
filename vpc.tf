@@ -193,10 +193,3 @@ resource "aws_ssm_parameter" "private_subnet_ids" {
   value     = join(",", aws_subnet.private[*].id)
   overwrite = true
 }
-
-
-resource "aws_subnet" "private" {
-  count = length(var.private_subnet_cidrs)
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.private_subnet_cidrs[count.index]
-}
