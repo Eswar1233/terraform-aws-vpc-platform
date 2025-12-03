@@ -185,11 +185,3 @@ resource "aws_route_table_association" "database" {
   subnet_id      = aws_subnet.database[count.index].id
   route_table_id = aws_route_table.database.id
 }
-
-
-resource "aws_ssm_parameter" "private_subnet_ids" {
-  name      = "/${var.project}/${var.environment}/private_subnet_ids"
-  type      = "String"
-  value     = join(",", aws_subnet.private[*].id)
-  overwrite = true
-}
